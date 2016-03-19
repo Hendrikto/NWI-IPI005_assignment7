@@ -19,7 +19,7 @@ public class QTrees {
         System.out.printf("Convert QTree to String:\n%s\n\n", output1);
 
         qt.fillBitmap(bitmap);
-        System.out.printf("Convert QTree to Bitmap:\n%s\n", bitmap);
+        System.out.printf("Convert QTree to Bitmap:\n%s\n\n", bitmap);
 
         QTree qt2 = new QTree(bitmap);
         System.out.printf("Convert Bitmap to QTree:\n%s\n\n", qt2);

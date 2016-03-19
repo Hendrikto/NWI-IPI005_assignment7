@@ -84,7 +84,7 @@ public class Bitmap {
             }
             sb.append('\n');
         }
-        return sb.toString();
+        return sb.deleteCharAt(sb.length() - 1).toString();
     }
 
     /**
