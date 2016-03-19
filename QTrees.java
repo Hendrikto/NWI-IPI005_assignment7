@@ -25,7 +25,7 @@ public class QTrees {
         System.out.printf("Convert Bitmap to QTree:\n%s\n\n", qt2);
 
         qt2.writeQTree(output2);
-        System.out.printf("Is that the same as the original input? %b\n", output2.toString().equals(test_text));
+        System.out.printf("That %s the same as the original input.\n", output2.toString().equals(test_text) ? "is" : "is not");
     }
 
 }
