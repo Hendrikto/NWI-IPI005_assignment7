@@ -6,10 +6,21 @@ import java.io.Writer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * Generate and output QTrees.
+ *
+ * @author Hendrik Werner // s4549775
+ * @author Jasper Haasdijk // s4449754
+ */
 public class QTree {
 
     QTNode root;
 
+    /**
+     * Constructor method.
+     *
+     * @param input a Reader to generate the QTree from
+     */
     public QTree(Reader input) {
         try {
             root = readQTree(input);
@@ -18,18 +29,40 @@ public class QTree {
         }
     }
 
+    /**
+     * Constructor method.
+     *
+     * @param bitmap a Bitmap to generate the QTree from
+     */
     public QTree(Bitmap bitmap) {
         root = bitmap2QTree(bitmap.getWidth(), bitmap);
     }
 
+    /**
+     * Fill a Bitmap with the QTree.
+     *
+     * @param bitmap the Bitmap to fill
+     */
     public void fillBitmap(Bitmap bitmap) {
         root.fillBitmap(0, 0, bitmap.getWidth(), bitmap);
     }
 
+    /**
+     * Write the QTree to a Writer.
+     *
+     * @param sb the Writer to write to
+     */
     public void writeQTree(Writer sb) {
         root.writeNode(sb);
     }
 
+    /**
+     * Generate a QTree from a Reader. Assumes pre-order traversal.
+     *
+     * @param input the Reader to read from
+     * @return the QTNode generated
+     * @throws IOException
+     */
     private static QTNode readQTree(Reader input) throws IOException {
         int character = input.read();
         switch (character) {
@@ -42,6 +75,13 @@ public class QTree {
         }
     }
 
+    /**
+     * Recursively generate a QTree from a Bitmap.
+     *
+     * @param size the size of the Bitmap
+     * @param bitmap the Bitmap
+     * @return the node generated
+     */
     public static QTNode bitmap2QTree(int size, Bitmap bitmap) {
         if (bitmap.isPlain()) {
             return new Leaf(bitmap.getBit(0, 0));

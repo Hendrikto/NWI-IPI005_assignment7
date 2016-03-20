@@ -3,8 +3,19 @@ package assignment7;
 import java.io.StringReader;
 import java.io.StringWriter;
 
+/**
+ * Contains the main method.
+ *
+ * @author Hendrik Werner // s4549775
+ * @author Jasper Haasdijk // s4449754
+ */
 public class QTrees {
 
+    /**
+     * Entry point
+     *
+     * @param args the command line arguments
+     */
     public static void main(String[] args) {
         String test_text = "10011010001010010001010101100011000101000000";
         StringReader input = new StringReader(test_text);

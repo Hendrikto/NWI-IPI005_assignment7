@@ -26,6 +26,14 @@ public class Bitmap {
         this.bmHeight = height;
     }
 
+    /**
+     * Generate a Bitmap from another one.
+     *
+     * @param template the template Bitmap
+     * @param offsetX the x-offset
+     * @param offsetY the y-offset
+     * @param size the size of the generated Bitmap
+     */
     public Bitmap(Bitmap template, int offsetX, int offsetY, int size) {
         this.raster = new boolean[size][size];
         this.bmWidth = this.bmHeight = size;
@@ -37,7 +45,7 @@ public class Bitmap {
     }
 
     /**
-     * Get a bit at the specified position
+     * Get a bit at the specified position.
      *
      * @param x: x coordinate
      * @param y: y coordinate
@@ -48,7 +56,7 @@ public class Bitmap {
     }
 
     /**
-     * Sets a bit at the specified position
+     * Set a bit at the specified position.
      *
      * @param x: x coordinate
      * @param y: y coordinate
@@ -58,6 +66,11 @@ public class Bitmap {
         this.raster[x][y] = val;
     }
 
+    /**
+     * Check whether this Bitmap is plain (= one-colored).
+     *
+     * @return whether this Bitmap is plain
+     */
     public final boolean isPlain() {
         boolean first = this.raster[0][0];
         for (int x = 0; x < this.bmWidth; x++) {
@@ -71,7 +84,7 @@ public class Bitmap {
     }
 
     /**
-     * Converts a bitmap into a string. 1 is represented by '*'; 0 by 'O'
+     * Convert a Bitmap into a string.
      *
      * @return the string representation
      */
@@ -88,21 +101,25 @@ public class Bitmap {
     }
 
     /**
-     * @return the width of the bitmap
+     * Get the width of this Bitmap.
+     *
+     * @return the width of the Bitmap
      */
     public int getWidth() {
         return this.bmWidth;
     }
 
     /**
-     * @return the height of the bitmap
+     * Get the height of this Bitmap.
+     *
+     * @return the height of the Bitmap
      */
     public int getHeight() {
         return this.bmHeight;
     }
 
     /**
-     * Fills a square area of a bitmap with value val
+     * Fills a square area of a bitmap with value val.
      *
      * @param x: x coordinate of upper-left corner
      * @param y: y coordinate of upper-left corner

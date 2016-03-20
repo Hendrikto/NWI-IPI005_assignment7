@@ -44,15 +44,33 @@ public class Leaf implements QTNode {
         this.type = LeafType.getType(type);
     }
 
+    /**
+     * Constructor method.
+     *
+     * @param type the type of the Leaf (true = black; false = white)
+     */
     public Leaf(boolean type) {
         this.type = type ? LeafType.black : LeafType.white;
     }
 
+    /**
+     * Fill an area of a Bitmap with the color of this Leaf.
+     *
+     * @param x the x-offset
+     * @param y the y-offset
+     * @param size the size of the area
+     * @param b the Bitmap
+     */
     @Override
     public void fillBitmap(int x, int y, int size, Bitmap b) {
         b.fillArea(x, y, size, this.type == LeafType.black);
     }
 
+    /**
+     * Write this Leaf to a Writer.
+     *
+     * @param out the Writer to write to
+     */
     @Override
     public void writeNode(Writer out) {
         try {
