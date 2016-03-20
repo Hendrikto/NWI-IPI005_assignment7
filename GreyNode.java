@@ -18,7 +18,6 @@ public class GreyNode implements QTNode {
         if (children.length != 4) {
             throw new Error("Invalid number of children.");
         }
-//        System.arraycopy(children, 0, this.children, 0, 4);
         this.children[0] = children[1];
         this.children[1] = children[2];
         this.children[2] = children[3];
