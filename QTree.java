@@ -47,10 +47,10 @@ public class QTree {
             return new Leaf(bitmap.getBit(0, 0));
         } else {
             return new GreyNode(
+                    bitmap2QTree(size / 2, new Bitmap(bitmap, 0, 0, size / 2)),
                     bitmap2QTree(size / 2, new Bitmap(bitmap, size / 2, 0, size / 2)),
                     bitmap2QTree(size / 2, new Bitmap(bitmap, size / 2, size / 2, size / 2)),
-                    bitmap2QTree(size / 2, new Bitmap(bitmap, 0, size / 2, size / 2)),
-                    bitmap2QTree(size / 2, new Bitmap(bitmap, 0, 0, size / 2))
+                    bitmap2QTree(size / 2, new Bitmap(bitmap, 0, size / 2, size / 2))
             );
         }
     }
