@@ -18,7 +18,11 @@ public class GreyNode implements QTNode {
         if (children.length != 4) {
             throw new Error("Invalid number of children.");
         }
-        System.arraycopy(children, 0, this.children, 0, 4);
+//        System.arraycopy(children, 0, this.children, 0, 4);
+        this.children[0] = children[1];
+        this.children[1] = children[2];
+        this.children[2] = children[3];
+        this.children[3] = children[0];
     }
 
     @Override
@@ -33,9 +37,10 @@ public class GreyNode implements QTNode {
     public void writeNode(Writer out) {
         try {
             out.append('1');
-            for (QTNode n : children) {
-                n.writeNode(out);
-            }
+            children[3].writeNode(out);
+            children[0].writeNode(out);
+            children[1].writeNode(out);
+            children[2].writeNode(out);
         } catch (IOException ex) {
             Logger.getLogger(GreyNode.class.getName()).log(Level.SEVERE, null, ex); // NetBeans generated
         }
